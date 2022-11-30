@@ -4,9 +4,15 @@ public class tester {
 	public static void main(String[] args) {
 //		gridTester();
 //		randomOceanTester();
-		BattleshipPlayer player = new BattleshipPlayer();
-		BattleshipGame game = new BattleshipGame(player);
-		System.out.println(game.play());
+//		BattleshipPlayer player = new BattleshipPlayer();
+//		BattleshipGame game = new BattleshipGame(player);
+//		System.out.println(game.play());
+//		PlayerEvaluatorTester();
+		PlayerEvaluator vjstrat = new PlayerEvaluator(new VirajJanejaStrategy(), 1000);
+		System.out.println(vjstrat.minTurns() + " " + vjstrat.maxTurns() + " " + vjstrat.averageTurns());
+
+		
+		
 	}
 	
 	static public void positionTester() {
@@ -67,5 +73,15 @@ public class tester {
 		}
 	}
 	
+	public static void PlayerEvaluatorTester() {
+		PlayerEvaluator test1 = new PlayerEvaluator(new ComputerBattleshipPlayer(), 100);
+		System.out.println("100 turns: min:" + test1.minTurns() + " | max: " + test1.maxTurns() + "| avg: " + test1.averageTurns());
+	
+		PlayerEvaluator test2 = new PlayerEvaluator(new ComputerBattleshipPlayer(), 1000);
+		System.out.println("1000 turns: min:" + test2.minTurns() + " | max: " + test2.maxTurns() + "| avg: " + test2.averageTurns());
+		
+		PlayerEvaluator test3 = new PlayerEvaluator(new ComputerBattleshipPlayer(), 5000);
+		System.out.println("5000 turns: min:" + test3.minTurns() + " | max: " + test3.maxTurns() + "| avg: " + test3.averageTurns());
+	}
 }
 

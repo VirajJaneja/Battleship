@@ -71,8 +71,10 @@ public class BattleshipPlayer {
 				shot = "hit";
 			else
 				shot = "miss";
-			if(gameOver)
+			if(gameOver) {
+				System.out.println("Turn #" + turns + ": The last ship (a " + boatName +") has been hit and sunk.");
 				System.out.println("The game is over.");
+			}
 			else {
 				System.out.print("Turn #" + turns + ": ");
 				System.out.println("Your shot at " + pos.toString() + " was a " + shot + ".");
